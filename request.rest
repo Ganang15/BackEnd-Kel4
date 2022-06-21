@@ -1,0 +1,31 @@
+GET  http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJIYWxpemFoIiwiZW1haWwiOiJDZW5kaWtpYTE2MTJAZ21haWwuY29tIiwiaWF0IjoxNjU1NjUzMzE3LCJleHAiOjE2NTU2NTMzNDd9.m9qdSct_TjRE_LVA46g0tZX2IwJG87HuFG46b6HxeA0
+
+
+
+###
+POST   http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Halizah",
+    "email": "Cendikia1612@gmail.com",
+    "password": "Halizah16",
+    "confPassword": "Halizah16"
+}
+
+###
+POST   http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "Cendikia1612@gmail.com",
+    "password": "Halizah16"
+}
+
+###
+GET   http://localhost:5000/token
+
+###
+DELETE    http://localhost:5000/logout
+
