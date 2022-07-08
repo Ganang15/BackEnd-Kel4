@@ -12,10 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasOne(models.Wishlist, { foreignKey: "productId" });
+      this.hasOne(models.Transaction, { foreignKey: "productId" });
 
       this.belongsTo(models.User, {
         through: "SellerProducts",
-        as: "users",
+        as: "userAsSeller",
         foreignKey: "userId",
       });
       this.belongsTo(models.category, { 

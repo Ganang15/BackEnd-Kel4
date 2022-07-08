@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Transaction extends Model {
     /**
@@ -18,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         
       this.belongsTo(models.User, { 
         through: "Product_Transactions",
-        as: "user as buyer",
+        as: "userAsBuyer",
         foreignKey: "userId" });
     }
   }
