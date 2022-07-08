@@ -4,10 +4,18 @@ const transactionController = require("../app/controllers/api/v1/transactionCont
 const transactionMiddleware = require("../middlewares/transactionMiddleware");
 const userMiddleware = require("../middlewares/userMiddleware");
 
-router.get("/", userMiddleware.authorize, transactionMiddleware.getByRole);
+router.get("/", userMiddleware.authorize, transactionController.list);
 
-router.post( "/", userMiddleware.authorize, userMiddleware.isBuyyer, transactionMiddleware.getProductByUser, transactionController.create);
-
-router.delete("/:id", userMiddleware.authorize, userMiddleware.isBuyyer, transactionController.destroy);
+router.get("/buyer/:id", userMiddleware.authorize, userMiddleware.isBuyyer, transactionController.listByBuyer);
+  
+router.get("/seller/:id", userMiddleware.authorize, userMiddleware.isSeller, transactionController.listBySeller);
+  
+router.get("/buyer/:userId/:id", userMiddleware.authorize, userMiddleware.isBuyyer, transactionController.showByBuyer);
+  
+router.get("/seller/:userId/:id", userMiddleware.authorize, userMiddleware.isSeller, transactionController.showBySeller);
+  
+router.post("/", userMiddleware.authorize, userMiddleware.isBuyyer, transactionMiddleware.getProductByUser, transactionController.create);
+  
+router.put("/:id", userMiddleware.authorize, userMiddleware.isSeller, transactionController.update)
 
 module.exports = router;
