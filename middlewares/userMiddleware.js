@@ -83,7 +83,7 @@ module.exports = {
         token,
         process.env.ACCESS_TOKEN || "secret"
       );
-      req.user = await userService.get(tokenPayload.id);
+      req.user = await userService.getById(tokenPayload.id);
       if (!(req.user.role === "BUYER")) {
         res.status(401).json({ message: "Anda bukan buyer" });
         return;

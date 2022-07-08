@@ -1,11 +1,9 @@
-const { getByUserId } = require("../app/services/transactionService");
 const transactionService = require("../app/services/transactionService");
 const transactionController = require("../app/controllers/api/v1/transactionController");
 
 const getByBuyer = async (req, res, buyerId) => {
   try {
     const data = await transactionService.getByBuyer(buyerId);
-    // console.log(data);
     if (data !== null) {
       return await transactionController.listByBuyer(req, res, buyerId);
     } else {
