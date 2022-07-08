@@ -13,7 +13,7 @@ function createToken(user) {
   return jwt.sign(payload, JWT_SECRET_KEY);
 }
 
-async function handleGoogleLoginOrRegister(req, res) {
+async function GoogleLoginOrRegister(req, res) {
   const { access_token } = req.body;
 
   try {
@@ -43,4 +43,4 @@ async function handleGoogleLoginOrRegister(req, res) {
   }
 }
 
-module.exports = handleGoogleLoginOrRegister;
+module.exports = GoogleLoginOrRegister;

@@ -36,7 +36,6 @@ module.exports = {
 
   async create(req, res) {
     try {
-      // create product
       const userTokenId = req.user.id;
       const data = await productService.create({
         userId: userTokenId,

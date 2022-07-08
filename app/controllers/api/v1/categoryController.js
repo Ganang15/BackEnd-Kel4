@@ -19,7 +19,6 @@ module.exports = {
 
   async create(req, res) {
     try {
-      // create category
       const data = await categoryService.create({
         name: req.body.name,
         createdAt: new Date(),

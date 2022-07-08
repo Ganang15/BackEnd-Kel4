@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   async register(req, res) {
     try {
-      // registrasi user
       const hashPassword = await bcrypt.hashSync(req.body.password, 10);
       const data = await userService.create({
         role: req.body.role,
